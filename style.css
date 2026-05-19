@@ -746,7 +746,7 @@ select.form-control {
   height: 100vh;
   min-height: 600px;
   background: linear-gradient(rgba(19, 52, 59, 0.7), rgba(19, 52, 59, 0.7)),
-              url('https://pplx-res.cloudinary.com/image/upload/v1755890325/pplx_project_search_images/8c1c41848fbcee0ff48645ce3889f4dc233a493e.png') center/cover;
+              url(”fundal nou.jpeg”) center/cover;
   display: flex;
   align-items: center;
   color: var(--color-white);
