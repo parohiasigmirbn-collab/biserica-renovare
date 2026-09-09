@@ -1,0 +1,21 @@
+{
+  "name": "parohia-sfantul-nicolae-cms",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "netlify dev --port 8889",
+    "build": "vite build"
+  },
+  "dependencies": {
+    "@netlify/blobs": "^11.0.3",
+    "@netlify/database": "^2.0.1",
+    "@netlify/functions": "^6.0.0",
+    "@netlify/identity": "^2.0.0",
+    "drizzle-orm": "beta"
+  },
+  "devDependencies": {
+    "drizzle-kit": "beta",
+    "typescript": "^5.9.2",
+    "vite": "^7.1.5"
+  }
+}
