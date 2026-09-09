@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex,nofollow" />
+    <title>Administrare — Sfântul Nicolae Sigmir</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Marcellus&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/admin/admin.css" />
+  </head>
+  <body>
+    <main id="admin-app">
+      <section class="auth-shell" id="auth-view">
+        <div class="auth-intro">
+          <a href="/" class="back-link">← Înapoi la site</a>
+          <span class="auth-symbol">✦</span>
+          <p class="eyebrow">Administrare conținut</p>
+          <h1>Un loc simplu pentru întreaga poveste a parohiei.</h1>
+          <p>Editează pagini, publică texte și organizează fotografiile fără să modifici codul site-ului.</p>
+        </div>
+        <form class="login-card" id="login-form">
+          <p class="eyebrow">Acces securizat</p>
+          <h2>Autentificare</h2>
+          <label>Email<input name="email" type="email" autocomplete="email" required /></label>
+          <label>Parolă<input name="password" type="password" autocomplete="current-password" required /></label>
+          <p class="form-message" id="login-message" role="alert"></p>
+          <button type="submit">Intră în panou</button>
+          <small>Accesul este permis numai conturilor invitate care au rolul <strong>admin</strong>.</small>
+        </form>
+      </section>
+
+      <section class="dashboard" id="dashboard" hidden>
+        <aside class="sidebar">
+          <div class="sidebar-brand"><span>✦</span><div><strong>Panou parohie</strong><small>Administrare</small></div></div>
+          <button class="primary-action" id="new-page" type="button">+ Pagină nouă</button>
+          <div class="sidebar-heading">Pagini</div>
+          <nav class="page-list" id="page-list"></nav>
+          <div class="sidebar-footer">
+            <a href="/" target="_blank">Vezi site-ul ↗</a>
+            <button id="logout" type="button">Deconectare</button>
+          </div>
+        </aside>
+
+        <div class="workspace">
+          <header class="workspace-header">
+            <div><p class="eyebrow">Editor de pagină</p><h1 id="editor-heading">Selectează o pagină</h1></div>
+            <div class="header-actions"><span id="save-state"></span><button class="danger-link" id="delete-page" type="button" hidden>Șterge</button><button id="save-page" type="button">Salvează</button></div>
+          </header>
+
+          <div class="workspace-grid">
+            <form class="editor-panel" id="page-form">
+              <div class="field-grid">
+                <label>Titlu pagină<input name="title" required /></label>
+                <label>Text în meniu<input name="navigationLabel" required /></label>
+                <label>Adresă pagină<div class="slug-field"><span>/p/</span><input name="slug" required /></div></label>
+                <label>Ordine în meniu<input name="sortOrder" type="number" value="0" /></label>
+              </div>
+              <label>Descriere pentru motoarele de căutare<textarea name="metaDescription" rows="2" maxlength="320"></textarea></label>
+              <div class="switches">
+                <label><input name="published" type="checkbox" /> Pagină publicată</label>
+                <label><input name="showInNavigation" type="checkbox" /> Afișează în meniu</label>
+              </div>
+              <div class="blocks-heading"><div><p class="eyebrow">Conținut</p><h2>Blocurile paginii</h2></div><button id="add-block" type="button">+ Adaugă bloc</button></div>
+              <div id="blocks" class="blocks"></div>
+            </form>
+
+            <aside class="media-panel">
+              <div><p class="eyebrow">Bibliotecă</p><h2>Imagini</h2></div>
+              <form id="upload-form" class="upload-form">
+                <label class="drop-zone"><input name="file" type="file" accept="image/jpeg,image/png,image/webp,image/gif,image/avif" required /><span>Încarcă o imagine</span><small>JPG, PNG, WebP, GIF sau AVIF · max. 8 MB</small></label>
+                <label>Descriere imagine<input name="altText" placeholder="Ex: Biserica în timpul renovării" /></label>
+                <button type="submit">Adaugă în bibliotecă</button>
+              </form>
+              <p class="form-message" id="media-message" role="alert"></p>
+              <div class="media-grid" id="media-grid"></div>
+            </aside>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script type="module" src="/admin/admin.js"></script>
+  </body>
+</html>
